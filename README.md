@@ -1,2 +1,6 @@
-# MicroserviceRabbitMQ
-C# .net core Microservice using RabbitMQ and other good stuff! Let's rock it!
+# Microservices with Rabbit MQ
+C# .net core 3.1
+RabbitMQ
+and other good stuff! 
+
+Let's rock it!
