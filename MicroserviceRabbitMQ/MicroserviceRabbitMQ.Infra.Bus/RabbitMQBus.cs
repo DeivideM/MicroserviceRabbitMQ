@@ -15,7 +15,7 @@ using RabbitMQ.Client.Exceptions;
 
 namespace MicroserviceRabbitMQ.Infra.Bus
 {
-    sealed class RabbitMQBus : IEventBus
+    public sealed class RabbitMQBus : IEventBus
     {
         private readonly IMediator _mediator;
         private readonly Dictionary<string, List<Type>> _handlers;
