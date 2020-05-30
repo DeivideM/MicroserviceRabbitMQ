@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MicroserviceRabbitMQ.Banking.Domain\MicroserviceRabbitMQ.Banking.Domain.csproj" />
+    <ProjectReference Include="..\MicroserviceRabbitMQ.Domain.Core\MicroserviceRabbitMQ.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>

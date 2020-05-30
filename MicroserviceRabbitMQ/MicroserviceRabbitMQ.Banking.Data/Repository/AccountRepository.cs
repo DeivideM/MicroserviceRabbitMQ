@@ -9,7 +9,7 @@ namespace MicroserviceRabbitMQ.Banking.Data.Repository
 {
     public class AccountRepository : IAccountRepository
     {
-        private readonly BankingDbContext _ctx;
+        private BankingDbContext _ctx;
 
         public AccountRepository(BankingDbContext ctx)
         {
