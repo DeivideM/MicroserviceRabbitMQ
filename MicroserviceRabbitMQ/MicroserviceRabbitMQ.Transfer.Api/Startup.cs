@@ -1,23 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using MediatR;
-using MicroserviceRabbitMQ.Banking.Data.Context;
 using MicroserviceRabbitMQ.Infra.IoC;
+using MicroserviceRabbitMQ.Transfer.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace MicroserviceRabbitMQ.Banking.Api
+namespace MicroserviceRabbitMQ.Transfer.Api
 {
     public class Startup
     {
@@ -31,9 +23,9 @@ namespace MicroserviceRabbitMQ.Banking.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BankingDbContext>(options =>
+            services.AddDbContext<TransferDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("BankingDbConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("TransferDbConnection"));
             });
 
             services.AddSwaggerGen(c =>
@@ -79,7 +71,7 @@ namespace MicroserviceRabbitMQ.Banking.Api
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Banking Microservice V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transfer Microservice V1");
             });
 
 
