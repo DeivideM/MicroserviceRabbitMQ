@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using MicroserviceRabbitMQ.Banking.Application.Interfaces;
+using MicroserviceRabbitMQ.Banking.Application.Models;
+using MicroserviceRabbitMQ.Banking.Domain.Commands;
 using MicroserviceRabbitMQ.Banking.Domain.Interfaces;
 using MicroserviceRabbitMQ.Banking.Domain.Models;
 using MicroserviceRabbitMQ.Domain.Core.Bus;
@@ -20,6 +22,17 @@ namespace MicroserviceRabbitMQ.Banking.Application.Services
         public IEnumerable<Account> GetAccounts()
         {
             return _accountRepository.GetAccounts();
+        }
+
+        public void Transfer(AccountTransfer accountTransfer)
+        {
+            var createTransferCommand = new CreateTransferCommand(
+                accountTransfer.FromAccount,
+                accountTransfer.ToAccount,
+                accountTransfer.TransferAmount
+                );
+
+            _bus.SendCommand(createTransferCommand);
         }
     }
 }

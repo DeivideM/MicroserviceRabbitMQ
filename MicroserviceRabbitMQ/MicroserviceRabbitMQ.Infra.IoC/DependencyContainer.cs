@@ -3,6 +3,9 @@ using MicroserviceRabbitMQ.Banking.Application.Interfaces;
 using MicroserviceRabbitMQ.Banking.Application.Services;
 using MicroserviceRabbitMQ.Banking.Data.Context;
 using MicroserviceRabbitMQ.Banking.Data.Repository;
+using MicroserviceRabbitMQ.Banking.Domain.CommandHandlers;
+using MicroserviceRabbitMQ.Banking.Domain.Commands;
+using MicroserviceRabbitMQ.Banking.Domain.Events;
 using MicroserviceRabbitMQ.Banking.Domain.Interfaces;
 using MicroserviceRabbitMQ.Domain.Core.Bus;
 using MicroserviceRabbitMQ.Infra.Bus;
@@ -28,7 +31,7 @@ namespace MicroserviceRabbitMQ.Infra.IoC
             //services.AddTransient<IEventHandler<TransferCreatedEvent>, TransferEventHandler>();
 
             //Domain Banking Commands
-            //services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, TransferCommandHandler>();
+            services.AddTransient<IRequestHandler<CreateTransferCommand, bool>, TransferCommandHandler>();
 
             //Application Services
             services.AddTransient<IAccountService, AccountService>();
